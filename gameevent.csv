@@ -1,4 +1,4 @@
-eventid, userid, eventtime, type, diffgold, diffpower, difflevel
+eventid,userid,eventtime,type,diffgold,diffpower,difflevel
 1,572,2022-12-16 11:30:26,3,0,0,2
 2,184,2022-12-16 11:30:33,2,96900,0,0
 3,524,2022-12-16 11:31:03,3,0,0,2
