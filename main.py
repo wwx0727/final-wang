@@ -30,17 +30,17 @@ class Mongo_Client():
 
 
     '''
-    create structures in the database to store data.   MongoDB 中的集合类似 SQL 的表。
+    create structures in the database to store data.  
     '''
     def create(self):
         print("create begin")
-        self.db_game = self.mongo['game']  #            以下三行不会在mongo里建立库和表 这只是准备工作
+        self.db_game = self.mongo['game']  #            
         self.col_state = self.db_game['state']  #
         self.col_event = self.db_game['event']  #
 
         def state(item):
             item['id']      =  int(item['id'])
-            item['region']  =  int(item['region'])  #以下四名可以不用64位的整数,换个小点的.
+            item['region']  =  int(item['region'])  
             item['gold']    =  int(item['gold'])
             item['power']   =  int(item['power'])
             item['level']   =  int(item['level'])
@@ -72,7 +72,7 @@ class Mongo_Client():
         
         #open and read from file
         with open("gamestate.csv",'rt',encoding='utf-8') as csvfile:
-            reader = csv.DictReader(csvfile) #以字典方式读取 csv
+            reader = csv.DictReader(csvfile) 
             #row      {'id': '1', 'statetime': '2022-12-19 15:23:07', 'region': '2', 'name': 'Name#1', 'email': 'email1@abc.com', 'gold': '56607', 'power': '248393', 'level': '21'}
             for row in reader:
                 row = self.state(row)
@@ -91,7 +91,7 @@ class Mongo_Client():
         
         #open and read from file
         with open("gameevent.csv",'rt',encoding='utf-8') as csvfile:
-            reader = csv.DictReader(csvfile) #以字典方式读取 csv
+            reader = csv.DictReader(csvfile) 
             for row in reader:
                 row = self.event(row)
                 result = self.col_event.insert_one(row)
